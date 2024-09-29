@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var attempts: Int = 0
-    @State var score: Int = 0
+    @State private var score: Int = 0
     @State var diceList: [Dice] = [
         Dice(value: 1, isSelected: false, id: "1"),
         Dice(value: 1, isSelected: false, id: "2"),
@@ -19,11 +19,23 @@ struct ContentView: View {
     ]
     
     func someAction (dice: Dice) {
-        dice.isSelected.toggle()
+        if (attempts != 0) {
+            dice.isSelected.toggle()
+        }
     }
     
     func onCategorySelect () {
         self.attempts = 0
+        resetDice()
+    }
+    
+    func resetDice () {
+        self.diceList = diceList.map { dice in {
+            dice.setValue(newValue: 1)
+            dice.isSelected = false
+            return dice
+        }()
+        }
     }
     
     func otherRollDice () {
@@ -47,31 +59,31 @@ struct ContentView: View {
             Text("Total Score: \(score)")
             VStack {
                 HStack {
-                    CategoryButton(categoryName: "One")
-                    CategoryButton(categoryName: "Three of a kind")
+                    CategoryButton(categoryType: GameCategories.One, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                    CategoryButton(categoryType: GameCategories.ThreeOfAKind, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                 }
                 HStack {
-                    CategoryButton(categoryName: "Two")
-                    CategoryButton(categoryName: "Four of a kind")
+                    CategoryButton(categoryType: GameCategories.Two, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                    CategoryButton(categoryType: GameCategories.FourOfAKind, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                 }
                 HStack {
-                    CategoryButton(categoryName: "Three")
-                    CategoryButton(categoryName: "Full House")
+                    CategoryButton(categoryType: GameCategories.Three, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                    CategoryButton(categoryType: GameCategories.FullHouse, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                 }
                 HStack {
-                    CategoryButton(categoryName: "Four")
-                    CategoryButton(categoryName: "Small Straight")
+                    CategoryButton(categoryType: GameCategories.Four, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                    CategoryButton(categoryType: GameCategories.SmallStraight, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                 }
                 HStack {
-                    CategoryButton(categoryName: "Five")
-                    CategoryButton(categoryName: "Large Straight")
+                    CategoryButton(categoryType: GameCategories.Five, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                    CategoryButton(categoryType: GameCategories.LargeStraight, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                 }
                 HStack {
-                    CategoryButton(categoryName: "Six")
-                    CategoryButton(categoryName: "Yahtzee")
+                    CategoryButton(categoryType: GameCategories.Six, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                    CategoryButton(categoryType: GameCategories.Yahtzee, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                 }
                 HStack {
-                    CategoryButton(categoryName: "Chance")
+                    CategoryButton(categoryType: GameCategories.Chance, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                 }
             }.frame(width: UIScreen.main.bounds.width).padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
             VStack {
