@@ -15,37 +15,28 @@ struct CategoryButton: View {
     
     @State private var categoryScore = 0
     @State private var hasBeenPressed = false
+    @State private var isFirstYahtzee = true
 
-    func getValueFromNumberCategory() -> Int {
-        if(categoryType.rawValue <= 6) {
-            return diceList.filter { $0.value == categoryType.rawValue }.reduce(0, { x, y in
-                x + y.value
-            })
-        }
-        
-        return 0;
-    }
-    
     func calculateCategoryScore() {
         switch categoryType {
         case .One, .Two, .Three, .Four, .Five, .Six:
-            self.categoryScore = getValueFromNumberCategory()
+            self.categoryScore = ScoreCalculator.shared.getValueFromNumberCategory(categoryType: categoryType, diceList: diceList)
         case .ThreeOfAKind:
-            self.categoryScore = score
+            self.categoryScore = ScoreCalculator.shared.calculateThreeOfAKind(diceList: diceList)
         case .FourOfAKind:
-            self.categoryScore = score
+            self.categoryScore = ScoreCalculator.shared.calculateFourOfAKind(diceList: diceList)
         case .FullHouse:
-            self.categoryScore = 25
+            self.categoryScore = ScoreCalculator.shared.calculateFullHouse(diceList: diceList)
         case .SmallStraight:
-            self.categoryScore = 30
+            self.categoryScore = ScoreCalculator.shared.calculateSmallStraight(diceList: diceList)
         case .LargeStraight:
-            self.categoryScore = 40
+            self.categoryScore = ScoreCalculator.shared.calculateLargeStraight(diceList: diceList)
         case .Yahtzee:
-            self.categoryScore = 50
+            // allow this only on first tap
+            // or if is not first yahtzee and score is non-zero
+            self.categoryScore = ScoreCalculator.shared.calculateYahtzee(diceList: diceList, isFirstYahtzee: isFirstYahtzee)
         case .Chance:
-            self.categoryScore = diceList.reduce(0, { x, y in
-                x + y.value
-            })
+            self.categoryScore = ScoreCalculator.shared.calculateChance(diceList: diceList)
         }
     }
 
@@ -86,7 +77,6 @@ struct CategoryButton: View {
             return "Large Straight"
         case .Chance:
             return "Chance"
-
         }
     }
     

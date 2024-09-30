@@ -17,6 +17,7 @@
 		C08904CB29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08904CA29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift */; };
 		C08904D929197F2F00FBB124 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08904D829197F2F00FBB124 /* Dice.swift */; };
 		C0D63EDB2CA9EC6600E52282 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D63EDA2CA9EC6600E52282 /* Enums.swift */; };
+		C0D63EDD2CAAA87500E52282 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D63EDC2CAAA87500E52282 /* ScoreCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		C08904CA29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yahtzeeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C08904D829197F2F00FBB124 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		C0D63EDA2CA9EC6600E52282 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		C0D63EDC2CAAA87500E52282 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +102,10 @@
 		C08904AC29197AFF00FBB124 /* yahtzee */ = {
 			isa = PBXGroup;
 			children = (
+				C08904AD29197AFF00FBB124 /* yahtzeeApp.swift */,
 				C0D63ED92CA9EC4B00E52282 /* Types */,
 				C08904DA2919805800FBB124 /* Views */,
 				C08904D729197F1000FBB124 /* Structs */,
-				C08904AD29197AFF00FBB124 /* yahtzeeApp.swift */,
 				C08904AF29197AFF00FBB124 /* ContentView.swift */,
 				C08904B129197AFF00FBB124 /* Assets.xcassets */,
 				C08904B329197AFF00FBB124 /* Preview Content */,
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				C08904D829197F2F00FBB124 /* Dice.swift */,
+				C0D63EDC2CAAA87500E52282 /* ScoreCalculator.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D63EDD2CAAA87500E52282 /* ScoreCalculator.swift in Sources */,
 				C08904B029197AFF00FBB124 /* ContentView.swift in Sources */,
 				C084C0EA2CA6048F00918381 /* CategoryButton.swift in Sources */,
 				C0D63EDB2CA9EC6600E52282 /* Enums.swift in Sources */,
