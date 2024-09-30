@@ -18,7 +18,7 @@ struct ContentView: View {
         Dice(value: 1, isSelected: false, id: "5"),
     ]
     
-    func someAction (dice: Dice) {
+    func selectDice (dice: Dice) {
         if (attempts != 0) {
             dice.isSelected.toggle()
         }
@@ -38,7 +38,7 @@ struct ContentView: View {
         }
     }
     
-    func otherRollDice () {
+    func onDiceRoll () {
         if (attempts < 3) {
             self.diceList = diceList.map { dice in {
                 if !dice.isSelected {
@@ -87,7 +87,7 @@ struct ContentView: View {
                 }
             }.frame(width: UIScreen.main.bounds.width).padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
             VStack {
-                Button(action: otherRollDice) {
+                Button(action: onDiceRoll) {
                     let buttonText = attempts < 3 ? "Roll Dice" : "Select Category"
                     Text(buttonText).font(.title)
                 }
@@ -95,7 +95,7 @@ struct ContentView: View {
             }
             HStack {
                 ForEach(self.diceList) { dice in
-                    Button(action: {someAction(dice: dice)}){
+                    Button(action: {selectDice(dice: dice)}){
                         Text("\(dice.value)").font(.title).padding(20).underline(dice.isSelected)
                     }
                 }
