@@ -17,6 +17,8 @@
 		C08904CB29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08904CA29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift */; };
 		C08904D929197F2F00FBB124 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08904D829197F2F00FBB124 /* Dice.swift */; };
 		C09D54D82CB0D6E50061C60D /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D54D72CB0D6E50061C60D /* DiceView.swift */; };
+		C09D54DA2CB0D9C50061C60D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D54D92CB0D9C50061C60D /* MainView.swift */; };
+		C09D54DC2CB0D9D50061C60D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D54DB2CB0D9D50061C60D /* GameView.swift */; };
 		C0D63EDB2CA9EC6600E52282 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D63EDA2CA9EC6600E52282 /* Enums.swift */; };
 		C0D63EDD2CAAA87500E52282 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D63EDC2CAAA87500E52282 /* ScoreCalculator.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		C08904CA29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yahtzeeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C08904D829197F2F00FBB124 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		C09D54D72CB0D6E50061C60D /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		C09D54D92CB0D9C50061C60D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C09D54DB2CB0D9D50061C60D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		C0D63EDA2CA9EC6600E52282 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		C0D63EDC2CAAA87500E52282 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +158,8 @@
 			children = (
 				C084C0E92CA6048F00918381 /* CategoryButton.swift */,
 				C09D54D72CB0D6E50061C60D /* DiceView.swift */,
+				C09D54DB2CB0D9D50061C60D /* GameView.swift */,
+				C09D54D92CB0D9C50061C60D /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,8 +303,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D63EDD2CAAA87500E52282 /* ScoreCalculator.swift in Sources */,
+				C09D54DA2CB0D9C50061C60D /* MainView.swift in Sources */,
 				C08904B029197AFF00FBB124 /* ContentView.swift in Sources */,
 				C084C0EA2CA6048F00918381 /* CategoryButton.swift in Sources */,
+				C09D54DC2CB0D9D50061C60D /* GameView.swift in Sources */,
 				C0D63EDB2CA9EC6600E52282 /* Enums.swift in Sources */,
 				C08904D929197F2F00FBB124 /* Dice.swift in Sources */,
 				C09D54D82CB0D6E50061C60D /* DiceView.swift in Sources */,
