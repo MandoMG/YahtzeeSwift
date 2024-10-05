@@ -16,6 +16,7 @@
 		C08904C929197B0000FBB124 /* yahtzeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08904C829197B0000FBB124 /* yahtzeeUITests.swift */; };
 		C08904CB29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08904CA29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift */; };
 		C08904D929197F2F00FBB124 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08904D829197F2F00FBB124 /* Dice.swift */; };
+		C09D54D82CB0D6E50061C60D /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D54D72CB0D6E50061C60D /* DiceView.swift */; };
 		C0D63EDB2CA9EC6600E52282 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D63EDA2CA9EC6600E52282 /* Enums.swift */; };
 		C0D63EDD2CAAA87500E52282 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D63EDC2CAAA87500E52282 /* ScoreCalculator.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		C08904C829197B0000FBB124 /* yahtzeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yahtzeeUITests.swift; sourceTree = "<group>"; };
 		C08904CA29197B0000FBB124 /* yahtzeeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yahtzeeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C08904D829197F2F00FBB124 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		C09D54D72CB0D6E50061C60D /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
 		C0D63EDA2CA9EC6600E52282 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		C0D63EDC2CAAA87500E52282 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,10 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				C08904AD29197AFF00FBB124 /* yahtzeeApp.swift */,
+				C08904AF29197AFF00FBB124 /* ContentView.swift */,
 				C0D63ED92CA9EC4B00E52282 /* Types */,
 				C08904DA2919805800FBB124 /* Views */,
 				C08904D729197F1000FBB124 /* Structs */,
-				C08904AF29197AFF00FBB124 /* ContentView.swift */,
 				C08904B129197AFF00FBB124 /* Assets.xcassets */,
 				C08904B329197AFF00FBB124 /* Preview Content */,
 			);
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				C084C0E92CA6048F00918381 /* CategoryButton.swift */,
+				C09D54D72CB0D6E50061C60D /* DiceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				C084C0EA2CA6048F00918381 /* CategoryButton.swift in Sources */,
 				C0D63EDB2CA9EC6600E52282 /* Enums.swift in Sources */,
 				C08904D929197F2F00FBB124 /* Dice.swift in Sources */,
+				C09D54D82CB0D6E50061C60D /* DiceView.swift in Sources */,
 				C08904AE29197AFF00FBB124 /* yahtzeeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
