@@ -82,8 +82,9 @@ struct ScoreCalculator {
         let counts = Dictionary(diceList.map { ($0.value, 1) }, uniquingKeysWith: +)
         
         if counts.values.contains(howMany) {
-            let threeOfAKindValue = counts.first(where: { $0.value == howMany })?.key ?? 0
-            return threeOfAKindValue * howMany
+            return diceList.reduce(0, { x, y in
+                x + y.value
+            })
         }
         
         return 0

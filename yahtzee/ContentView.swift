@@ -10,19 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @State var attempts: Int = 0
     @State private var score: Int = 0
-    @State var diceList: [Dice] = [
+    @State private var diceList: [Dice] = [
         Dice(value: 1, isSelected: false, id: "1"),
         Dice(value: 1, isSelected: false, id: "2"),
         Dice(value: 1, isSelected: false, id: "3"),
         Dice(value: 1, isSelected: false, id: "4"),
         Dice(value: 1, isSelected: false, id: "5"),
     ]
-    
-    func selectDice (dice: Dice) {
-        if (attempts != 0) {
-            dice.isSelected.toggle()
-        }
-    }
     
     func onCategorySelect () {
         self.attempts = 0
@@ -95,9 +89,7 @@ struct ContentView: View {
             }
             HStack {
                 ForEach(self.diceList) { dice in
-                    Button(action: {selectDice(dice: dice)}){
-                        Text("\(dice.value)").font(.title).padding(20).underline(dice.isSelected)
-                    }
+                    DiceView(dice: dice, attempts: $attempts)
                 }
             }.padding(20)
         }

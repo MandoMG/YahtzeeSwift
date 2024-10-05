@@ -7,9 +7,14 @@
 
 import Foundation
 
+// A class that conforms to ObservableObject
+// lets SwiftUI views that @Published variables
+// should notify the view of changes so that the
+// view is rendered
+
 class Dice: Identifiable, ObservableObject {
     @Published var value: Int
-    var isSelected: Bool
+    @Published var isSelected: Bool
     var id: String
     
     init(value: Int, isSelected: Bool, id: String) {
@@ -20,5 +25,9 @@ class Dice: Identifiable, ObservableObject {
     
     func setValue (newValue: Int) {
         self.value = newValue
+    }
+    
+    func toggleSelection() {
+        self.isSelected.toggle()
     }
 }
