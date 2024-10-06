@@ -24,17 +24,16 @@ struct Instructions: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
+                    Text("Gameplay").font(.largeTitle).padding(.top, 10)
                     Text("The game uses five dice. You get three rolls per turn.")
-                        .padding(.top, 10)
                     
-                    Text("Gameplay").font(.title2).padding(.top, 10)
-                    Text("Rolling the dice").font(.title3)
+                    Text("Rolling the dice").font(.title).padding(.top, 10)
                     Text("Roll all five dice. After the first roll, you may select which ones to keep. You may reroll all the unselected dice up to two more times (for a total of three rolls per turn). The goal is to score as many points as possible by rolling specific combinations.")
                     
-                    Text("Scoring").font(.title3).padding(.top, 10)
+                    Text("Scoring").font(.title).padding(.top, 10)
                     Text("After the third roll (or sooner if you choose) you must place the score in one of the boxes in the scorecard. Once a box is filled, it cannot be used again for the remainder of the game.")
                     
-                    Text("Categories").font(.title3).padding(.top, 10)
+                    Text("Categories").font(.title).padding(.top, 10)
                     ForEach(self.categoriesDescription) { category in
                         VStack {
                             HStack {
@@ -53,6 +52,14 @@ struct Instructions: View {
             }
         }
         .navigationTitle("Game Rules")
+        .onAppear {
+            // Set the background color for the navigation bar
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.systemBackground // Set your desired color
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
 }
 
