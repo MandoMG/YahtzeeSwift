@@ -14,6 +14,9 @@ struct ContentView: View {
             NavigationLink(destination: GameView()) {
                 Text("New Game").font(.title).padding(10)
             }
+            NavigationLink(destination: Instructions()) {
+                Text("Game Rules").font(.title).padding(10)
+            }
         }
     }
 }
