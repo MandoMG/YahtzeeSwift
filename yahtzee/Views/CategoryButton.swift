@@ -85,6 +85,7 @@ struct CategoryButton: View {
             Button(action: self.categorySelection) {
                 Text(getCategoryName()).font(.title2).frame(width: 100, alignment: .leading)
             }
+            .disabled(self.hasBeenPressed)
             
             Text("\(self.categoryScore)").font(.title).padding(Edge.Set.horizontal, 10)
         }.frame(alignment: .leading).padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))

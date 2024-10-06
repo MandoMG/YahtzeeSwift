@@ -56,40 +56,33 @@ struct GameView: View {
             VStack {
                 Text("Yahtzee!").font(.largeTitle)
                 Text("Total Score: \(score)")
-                VStack {
-                    HStack {
+                HStack {
+                    VStack {
                         CategoryButton(categoryType: GameCategories.One, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                        CategoryButton(categoryType: GameCategories.ThreeOfAKind, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                    }
-                    HStack {
                         CategoryButton(categoryType: GameCategories.Two, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                        CategoryButton(categoryType: GameCategories.FourOfAKind, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                    }
-                    HStack {
                         CategoryButton(categoryType: GameCategories.Three, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                        CategoryButton(categoryType: GameCategories.FullHouse, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                    }
-                    HStack {
                         CategoryButton(categoryType: GameCategories.Four, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                        CategoryButton(categoryType: GameCategories.SmallStraight, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                    }
-                    HStack {
                         CategoryButton(categoryType: GameCategories.Five, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                        CategoryButton(categoryType: GameCategories.LargeStraight, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                    }
-                    HStack {
                         CategoryButton(categoryType: GameCategories.Six, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                        CategoryButton(categoryType: GameCategories.Yahtzee, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
-                    }
-                    HStack {
                         CategoryButton(categoryType: GameCategories.Chance, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
                     }
-                }.frame(width: UIScreen.main.bounds.width).padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                    VStack {
+                        CategoryButton(categoryType: GameCategories.ThreeOfAKind, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                        CategoryButton(categoryType: GameCategories.FourOfAKind, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                        CategoryButton(categoryType: GameCategories.FullHouse, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                        CategoryButton(categoryType: GameCategories.SmallStraight, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                        CategoryButton(categoryType: GameCategories.LargeStraight, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                        CategoryButton(categoryType: GameCategories.Yahtzee, score: $score, diceList: $diceList, onCategorySelect: onCategorySelect)
+                    }
+                }
+                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                    .disabled(attempts == 0)
                 VStack {
                     Button(action: onDiceRoll) {
                         let buttonText = attempts < 3 ? "Roll Dice" : "Select Category"
                         Text(buttonText).font(.title)
                     }
+                    .disabled(attempts == 3)
                     Text("Rolls Remaining: \(3 - attempts)")
                 }
                 HStack {
@@ -105,6 +98,7 @@ struct GameView: View {
             if (self.score > 0) {
                 self.shouldShowAlert = true
             } else {
+                resetDice()
                 presentationMode.wrappedValue.dismiss()
             }
         }) {
@@ -117,6 +111,7 @@ struct GameView: View {
                 message: Text("Are you sure you want to go back? Current game score will be lost."),
                 primaryButton: .default(Text("Yes")) {
                     // Dismiss the view when user taps "Yes"
+                    resetDice()
                     presentationMode.wrappedValue.dismiss()
                 },
                 secondaryButton: .cancel(Text("No"))  // Close alert if "No" is tapped
