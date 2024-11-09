@@ -50,7 +50,11 @@ struct ScoreCalculator {
         var listHasStraight: Bool = false
         let limit = isSmallStraight ? 3 : 4 // how many other numbers to check for
         let sortedDice = Array(Set(diceList.map { $0.value })).sorted()
-
+        
+        if(sortedDice.count < limit) {
+            return false;
+        }
+        
         for i in 0..<(sortedDice.count - limit) {
             let consecutiveSlice = sortedDice[i...i+limit]
             if consecutiveSlice.enumerated().allSatisfy({ $0.element == sortedDice[i] + $0.offset }) {

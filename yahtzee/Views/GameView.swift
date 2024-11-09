@@ -103,7 +103,7 @@ struct GameView: View {
             }
         }) {
             Image(systemName: "chevron.left")
-            Text("Go Back")
+            Text("End Game")
         })
         .alert(isPresented: $shouldShowAlert) {
             Alert(
